@@ -12,6 +12,7 @@ typedef vector<int> vi;
 typedef std::pair<int, int> pii;
 typedef vector<pii> vp;
 
+/*Utility Function*/
 void appendString(string& str, int cur){
       char C;
       if (cur == 0){
@@ -30,8 +31,9 @@ void appendString(string& str, int cur){
            str+=C;
            str+=" ";
       }
-};
+};//Configure Output String
 
+/*Breadth First Tree Search*/
 string BFS(vp* g){
 	string str;
 	int cur;
@@ -50,6 +52,7 @@ string BFS(vp* g){
 	return str;
 };
 
+/*Depth First Tree Search*/
 string DFS(vp* g){
 	string str;
 	int cur;
@@ -65,7 +68,7 @@ string DFS(vp* g){
 			appendString(str, -18);
 			appendString(str, -18);
 			break;
-		}
+		}//break after looping for three times
 		dq.pop_back();	
 		appendString(str,cur);
 		visited[cur] ++;	
@@ -79,6 +82,7 @@ string DFS(vp* g){
 	return str;
 };
 
+/*Uniform-cost Tree Search*/
 string UCTS(vp* g){
 	string str;
 	int u,depth;
@@ -99,18 +103,13 @@ string UCTS(vp* g){
 		for(auto c : g[u]){
 			int v = c.first;
 			int w = c.second;
-			//if (Dist[v] > Dist[u] + w){
-				//Dist[v] = Dist[u] + w;
-				//Q.push({Dist[v],v});
-			//}
-			//elseif()
 			Q.push({depth + w, v});
-			//}
 		}
 	}
 	return str;
 };
 
+/*A-star Tree Search*/
 string ASTS(vp* g, vi& heu){
 
 	string str;
@@ -137,6 +136,7 @@ string ASTS(vp* g, vi& heu){
 	return str;
 }
 
+/*A-star Graph Search*/
 string ASGS(vp* g, vi& heu){
 
 	string str;
@@ -169,12 +169,12 @@ int main(int , char** argv) {
 	int edge_num, node_num;
 	int h;
 	int n1,n2,wei;
-	vi heu;
+	vi heu;//heuristics 
 
 	ifstream fin(argv[1]);
 	fin>>node_num>>edge_num;	
 	
-	vp* graph;	
+	vp* graph;//graph stored as adjacency lists 	
 	graph = new vp[node_num+2];
 
 	while(0 < node_num){

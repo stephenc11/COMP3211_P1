@@ -8,9 +8,12 @@ g++ search.cpp -std=c++11 -o search
 
 ./search Graphx (where x = 1,2,3,4,5)
 
+Environment: Linux Machine in CS Lab 2
 
 Output
 --------------------------------------------------
+
+(S: Start, G,G1,G2: Goal)
 
 Graph1:
 
@@ -53,10 +56,5 @@ Uniform-cost Tree Search:  S B A B D C D G
 A* Tree Search:            S B A D B C G 
 
 A* Graph Search:           S B A D C G 
-
-Implementation
---------------------------------------------------
-
-
 
 
